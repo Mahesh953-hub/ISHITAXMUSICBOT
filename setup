@@ -22,13 +22,13 @@ yesnoprompt(){
 }
 
 update() {
-	pprint "\n\n𝐔𝐩𝐝𝐚𝐭𝐢𝐧𝐠 𝐕𝐢𝐩 𝐌𝐮𝐬𝐢𝐜 𝐏𝐚𝐜𝐤𝐚𝐠𝐞 𝐋𝐢𝐬𝐭😎.. "
+	pprint "\n\nUᴘᴅᴀᴛɪɴɢ Pᴀᴄᴋᴀɢᴇs.. "
 	sudo apt update 2>&1 | grep "can be upgraded" &>/dev/null
 	if [ $? -eq 0 ]; then
-		pprint "𝗨𝗽𝗱𝗮𝘁𝗲 𝗔𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲..🖕" "cgreen"
-		pprint "\n\𝙳𝙾 𝚈𝙾𝚄 𝚆𝙰𝙽𝚃 𝚃𝙾 𝙰𝚄𝚃𝙾 𝚄𝙿𝙶𝚁𝙰𝙳𝙴🥱..? (y/n)?"
+		pprint "Uᴘᴅᴀᴛᴇs Aᴠᴀɪʟᴀʙʟᴇ" "cgreen"
+		pprint "\n\Dᴏ Yᴏᴜ Wᴀɴᴛ Tᴏ Dᴏ Uᴘᴅᴀᴛᴇ ? (y/n)?"
 		if yesnoprompt; then
-			pprint "\n\n𝐔𝐩𝐠𝐫𝐚𝐝𝐢𝐧𝐠 𝐏𝐚𝐜𝐤𝐚𝐠𝐞𝐬😉.. "
+			pprint "\n\nUᴘɢʀᴀᴅɪɴɢ Pᴀᴄᴋᴀɢᴇs"
 			sudo apt upgrade -y &>/dev/null &&
 			pprint "🇩 🇴 🇳 🇪 ✅!\n\n" "cgreen" || (pprint "🇫 🇦 🇮 🇱 ❎.\n\n" "cred"; exit 1)
 		else
@@ -41,17 +41,17 @@ update() {
 
 packages(){
 	if ! command -v pip &>/dev/null; then
-		pprint "ᴄᴏᴜʟᴅ ɴᴏᴛ ғɪɴᴅ ᴘɪᴘ, เɳรƭαℓℓเɳɠ ɳσω🤧..."
+		pprint "ᴄᴏᴜʟᴅ ɴᴏᴛ ғɪɴᴅ ᴘɪᴘ, Iɴsᴛᴀʟʟɪɴɢ Nᴏᴡ"
 		sudo apt install python3-pip -y 2>pypilog.txt 1>/dev/null &&
-		pprint "𝐇𝐄𝐇𝐄 𝐃𝐎𝐍𝐄✔.\n\n" "cgreen" || (pprint "𝐎𝐏𝐒 𝐅𝐀𝐈𝐋𝐄𝐃❌.\n\n" "cred"; exit 1)
+		pprint "Dᴏɴᴇ✔.\n\n" "cgreen" || (pprint "Fᴀɪʟᴇᴅ.\n\n" "cred"; exit 1)
 	fi
 
 	if ! command -v ffmpeg &>/dev/null; then
-		pprint "СѲƱᏓD ŊѲƭ ƒσυηD ғғᴍᴘᴇɢ, 𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐢𝐧𝐠 𝐍𝐨𝐰🙂..."
+		pprint "Cᴏᴜʟᴅ Nᴏᴛ Fᴏᴜɴᴅ Fғᴍᴘᴇɢ, Iɴsᴛᴀʟʟɪɴɢ.."
 		if sudo apt install ffmpeg -y &>/dev/null;then
-			pprint "✌️ 🇩 🇴 🇳 🇪   🇧 🇦 🇧 🇾 ✌️ .\n\n" "cgreen"
+			pprint "Dᴏɴᴇ .\n\n" "cgreen"
 		else
-			pprint "🇫 🇦 🇮 🇱 🇪 🇩 😗.\n\n" "cred"
+			pprint "Fᴀɪʟᴇᴅ.\n\n" "cred"
 			pprint "You need to install ffmpeg manually in order to deploy VipX Music, exiting...\n" "cblue"
 			exit 1
 		fi
@@ -65,7 +65,7 @@ packages(){
 
 node(){
 	command -v npm &>/dev/null && return
-	pprint "𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐢𝐧𝐠 𝐍𝐨𝐝𝐞𝐣𝐬 and 𝐍𝐩𝐦😅..  "
+	pprint "Iɴsᴛᴀʟʟɪɴɢ Nᴏᴅᴇᴊs Aɴᴅ Nᴘᴍ "
 	curl -fssL https://deb.nodesource.com/setup_18.x | sudo -E bash - &>nodelog.txt &&
 	sudo apt install nodejs -y &>>nodelog.txt &&
 	sudo npm i -g npm &>>nodelog.txt &&
@@ -77,35 +77,35 @@ installation(){
 	pprint "\n\n𝗨𝗽𝗴𝗿𝗮𝗱𝗶𝗻𝗴 𝗽𝗶𝗽 𝗔𝗻𝗱 𝗜𝗻𝘀𝘁𝗮𝗹𝗹𝗶𝗻𝗴 𝗗𝗲𝗽𝗲𝗻𝗱𝗲𝗰𝘆 𝗣𝗮𝗸𝗮𝗴𝗲𝘀📍..."
 	pip3 install -U pip &>>pypilog.txt &&
 	pip3 install -U -r requirements.txt &>>pypilog.txt &&
-	pprint "𝐃𝐨𝐧𝐞💞.\n" "cgreen" && return
-	pprint "𝐅𝐚𝐢𝐥𝐞𝐝😭.\n" "cred"
+	pprint "Dᴏɴᴇ💞.\n" "cgreen" && return
+	pprint "Fᴀɪʟᴇᴅ😭.\n" "cred"
 	exit 1
 }
 
 clear
-pprint "🇼𝐄𝐋𝐂𝐎𝐌𝐄 🇹𝐎 🇻𝐈𝐏 🇲𝐔𝐒𝐈𝐂 🇸𝐄𝐓𝐔𝐏 🇮𝐍𝐒𝐓𝐀𝐋𝐋𝐄𝐑\n\n"
-pprint "💝𝐈𝗳 𝐘𝗼𝘂 𝐒𝗲𝗲 𝐀𝗻𝘆 𝐄𝗿𝗿𝗼𝗿 𝐃𝘂𝗿𝗶𝗻𝗴 𝐈𝗻𝘀𝘁𝗮𝗹𝗹𝗮𝘁𝗶𝗼𝗻 𝐏𝗿𝗼𝗰𝗲𝘀𝘀, 𝐏𝗹𝗲𝗮𝘀𝗲 𝐑𝗲𝗳𝗲𝗿 𝐓𝗼 𝐓𝗵𝗲𝘀𝗲 𝐅𝗶𝗹𝗲𝘀 𝐅𝗼𝗿 𝐋𝗼𝗴𝘀:🇮🇳 "
-pprint "\n♥𝐅𝗼𝗿 𝐍𝗼𝗱𝗲 𝐉𝘀 𝐄𝗿𝗿𝗼𝗿𝘀 , 𝐂𝗵𝗲𝗰𝗸𝗼𝘂𝘁 𝐍𝗼𝗱𝗲𝗹𝗼𝗴.𝘁𝘅𝘁🗯"
-pprint "\n🤍𝐅𝗼𝗿 𝐏𝘆𝗽𝗶 𝐏𝗮𝗰𝗸𝗮𝗴𝗲𝘀 𝐄𝗿𝗿𝗼𝗿𝘀 , 𝐂𝗵𝗲𝗰𝗸𝗼𝘂𝘁 𝐏𝘆𝗽𝗶𝗹𝗼𝗴.𝘁𝘅𝘁💭"
+pprint "Wᴇʟᴄᴏᴍᴇ Tᴏ Sᴇᴛᴜᴘ Iɴsᴛᴀʟʟᴇʀ\n\n"
+pprint "💝Is Yᴏᴜ Sᴇᴇ Aɴʏ Eʀʀᴏʀ Wʜᴇɴ Sᴇᴛᴜᴘ, Rᴇғᴇʀ Tᴏ Tʜᴇsᴇ Lᴏɢs:🇮🇳 "
+pprint "\n♥Fᴏʀ NᴏᴅᴇJs Eʀʀᴏʀ, Cʜᴇᴄᴋ nodejs.txt🗯"
+pprint "\n🤍Fᴏʀ Pʏᴘɪ Eʀʀᴏʀ, Cʜᴇᴄᴋ pylogs.txt💭"
 sleep 1
-pprint "\n\sᴄʀɪᴘᴛ ɴᴇᴇᴅs sᴜᴅᴏ ᴘʀɪᴠɪʟᴇɢᴇs ɪɴ ᴏʀᴅᴇʀ ᴛᴏ ᴜᴘᴅᴀᴛᴇ & ɪɴsᴛᴀʟʟ ᴘᴀᴄᴋᴀɢᴇs😼.\n"
+pprint "\n\I Nᴇᴇᴅ Sᴜᴅᴏ Pʀɪᴠɪʟᴇɢ Tᴏ Wᴏʀᴋ Aɴᴅ Sᴇᴛᴜᴘ .\n"
 sudo test
 
 update
 packages
 node
 installation
-pprint "\n\n\n\n\n🇻 🇮 🇵   🇲 🇺 🇸 🇮 🇨   🇧 🇴 🇹 " "cgreen"
+pprint "\n\n\n\n\nIsʜɪᴛᴀ x Mᴜsɪᴄ Bᴏᴛ " "cgreen"
 sleep 1
 clear
 
-pptint "\n\n\n\n\n𝐕𝐈𝐏"
+pptint "\n\n\n\n\nIsʜɪᴛᴀ"
 clear
-pprint "\n\n\n\n\n    𝐌𝐔𝐒𝐈𝐂"
+pprint "\n\n\n\n\n    Mᴜsɪᴄ"
 clear
-pprint "\n\n\n\n\n          𝐁𝐎𝐓"
+pprint "\n\n\n\n\n          Bᴏᴛ"
 clear
-pprint "                      🇻 🇮 🇵   🇲 🇺 🇸 🇮 🇨   🇧 🇴 🇹 "
+pprint "                      Isʜɪᴛᴀ Mᴜsɪᴄ Bᴏᴛ "
 pprint "\n\n𝐄𝐧𝐭𝐞𝐫 𝐘𝐨𝐮𝐫 𝐁𝐨𝐭 𝐃𝐚𝐭𝐚 𝐁𝐞𝐥𝐨𝐰\n\n\n"
 pprint "\n𝗔𝗣𝗜 𝗜𝗗:- "; color_reset; read api_id
 pprint "\n𝗔𝗣𝗜 𝗛𝗔𝗦𝗛:- "; color_reset; read api_hash
@@ -118,7 +118,7 @@ pprint "\n𝗦𝗧𝗥𝗜𝗡𝗚 𝗦𝗘𝗦𝗦𝗜𝗢𝗡:- "; color_reset
 pprint "\n𝗚𝗥𝗢𝗨𝗣 𝗨𝗦𝗘𝗥𝗡𝗔𝗠𝗘:- "; color_reset; read group_username
 pprint "\n𝗖𝗛𝗔𝗡𝗡𝗘𝗟 𝗨𝗦𝗘𝗥𝗡𝗔𝗠𝗘:- "; color_reset; read channel_username
 
-pprint "\n\𝐧🍷𝐋𝐨𝐚𝐝𝐢𝐧𝐠 𝐘𝐨𝐮𝐫 𝐕𝐚𝐫𝐬, 𝐏𝐥𝐞𝐚𝐬𝐞 𝐖𝐚𝐢𝐭 𝐁𝐚𝐛𝐲♨️" "cgreen"
+pprint "\n\𝐧Wᴀɪᴛ A Sᴇᴄᴏɴᴅ, Lᴏᴀᴅɪɴɢ Yᴏᴜʀ Pʀᴇᴛᴛʏ Vᴀʀs" "cgreen"
 
 if [ -f .env ]; then
 	rm .env
@@ -136,4 +136,4 @@ STRING_SESSION = $string_session
 OWNER_ID = $ownid""" > .env
 clear
 
-pprint "\n\n\n\n\\n𝐍𝐎𝐖 𝐒𝐓𝐀𝐑𝐓 𝐓𝐇𝐄 𝐁𝐎𝐓 𝐁𝐘 𝐏𝐔𝐓 𝐓𝐖𝐎 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 \n\n 1𝐬𝐭 𝐂𝐨𝐦𝐦𝐚𝐧𝐝:- tmux \n 2𝐧𝐝 𝐂𝐨𝐦𝐦𝐚𝐧𝐝:- bash start\n\n"
+pprint "\n\n\n\n\\nSᴛᴀʀᴛ Tʜᴇ Bᴏᴛ Jᴜsᴛ Bʏ Tᴡᴏ Cᴏᴍᴍᴀɴᴅs \n\n 1sᴛ Cᴏᴍᴍᴀɴᴅ:- tmux \n 2ɴᴅ Cᴏᴍᴍᴀɴᴅ:- bash start\n\n"
