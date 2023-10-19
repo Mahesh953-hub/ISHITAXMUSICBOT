@@ -314,7 +314,7 @@ class Call(PyTgCalls):
                 )
         except AlreadyJoinedError:
             raise AssistantErr(
-                "**Assɪsᴛᴀɴᴛ Eʀʀᴏʀ Fᴏᴜɴᴅ Iɴ Tʜɪs Cʜᴀᴛ**\n\n**Bᴏᴛ Nᴇᴇᴅs Tᴏ Bᴇ Rᴇsᴛᴀʀᴛᴇᴅ**\n\n**Pʟᴇᴀsᴇ Rᴇsᴛᴀʀᴛ Vᴄ Iɴ Yᴏᴜʀ Cʜᴀᴛ**\n**Tʜᴇɴ Tʏᴘᴇ /reboot Aɴᴅ Sᴛᴀʀᴛ Pʟᴀʏ Aɢᴀɪɴ Sᴏɴɢs**"**"
+                "**Assɪsᴛᴀɴᴛ Eʀʀᴏʀ Fᴏᴜɴᴅ Iɴ Tʜɪs Cʜᴀᴛ**\n\n**Bᴏᴛ Nᴇᴇᴅs Tᴏ Bᴇ Rᴇsᴛᴀʀᴛᴇᴅ**\n\n**Pʟᴇᴀsᴇ Rᴇsᴛᴀʀᴛ Vᴄ Iɴ Yᴏᴜʀ Cʜᴀᴛ**\n**Tʜᴇɴ Tʏᴘᴇ /reboot Aɴᴅ Sᴛᴀʀᴛ Pʟᴀʏ Aɢᴀɪɴ Sᴏɴɢs**"
             )
         except TelegramServerError:
             raise AssistantErr(
